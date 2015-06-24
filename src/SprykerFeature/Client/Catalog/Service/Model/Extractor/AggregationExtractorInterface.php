@@ -1,10 +1,10 @@
 <?php
 
-namespace SprykerFeature\Client\Catalog\Model\Extractor;
+namespace SprykerFeature\Client\Catalog\Service\Model\Extractor;
 
 /**
  * Class AbstractAggregationExtractor
- * @package SprykerFeature\Client\Catalog\Model\Extractor
+ * @package SprykerFeature\Client\Catalog\Service\Model\Extractor
  */
 interface AggregationExtractorInterface
 {

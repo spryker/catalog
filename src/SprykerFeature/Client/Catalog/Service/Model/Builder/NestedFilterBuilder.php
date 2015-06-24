@@ -1,6 +1,6 @@
 <?php
 
-namespace SprykerFeature\Client\Catalog\Model\Builder;
+namespace SprykerFeature\Client\Catalog\Service\Model\Builder;
 
 use Elastica\Filter\Nested;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace SprykerFeature\Client\Catalog\Model\Exception;
+namespace SprykerFeature\Client\Catalog\Service\Model\Exception;
 
 class ProductNotFoundException extends \RuntimeException
 {

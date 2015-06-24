@@ -1,10 +1,10 @@
 <?php
 
-namespace SprykerFeature\Client\Catalog\Model;
+namespace SprykerFeature\Client\Catalog\Service\Model;
 
+use SprykerFeature\Client\Catalog\Service\Model\Exception\ProductNotFoundException;
+use SprykerFeature\Client\KvStorage\Service\KvStorageClientInterface;
 use SprykerFeature\Shared\FrontendExporter\Code\KeyBuilder\KeyBuilderInterface;
-use SprykerFeature\Shared\KvStorage\Client\ReadInterface;
-use SprykerFeature\Client\Catalog\Model\Exception\ProductNotFoundException;
 
 class Catalog implements CatalogInterface
 {
@@ -26,7 +26,7 @@ class Catalog implements CatalogInterface
     protected $productKeyBuilder;
 
     /**
-     * @var ReadInterface
+     * @var KvStorageClientInterface
      */
     protected $storageReader;
 
@@ -37,12 +37,12 @@ class Catalog implements CatalogInterface
 
     /**
      * @param KeyBuilderInterface $productKeyBuilder
-     * @param ReadInterface       $storageReader
-     * @param string              $locale
+     * @param KvStorageClientInterface $storageReader
+     * @param string $locale
      */
     public function __construct(
         KeyBuilderInterface $productKeyBuilder,
-        ReadInterface $storageReader,
+        KvStorageClientInterface $storageReader,
         $locale
     ) {
         $this->productKeyBuilder = $productKeyBuilder;
@@ -70,8 +70,8 @@ class Catalog implements CatalogInterface
 
     /**
      * @param array $ids
-     * @param null  $indexByKey
-     * 
+     * @param null $indexByKey
+     *
      * @return array
      */
     public function getProductDataByIds(array $ids, $indexByKey = null)
@@ -116,7 +116,7 @@ class Catalog implements CatalogInterface
     public function getSubProducts(array $product)
     {
         $subProducts = [];
-        switch($product[self::INDEXKEY_VARIETY]) {
+        switch ($product[self::INDEXKEY_VARIETY]) {
             case self::PRODUCT_VARIETY_CONFIG :
                 return $this->getSubProductsBySkuIndex($product, self::INDEXKEY_PRODUCT_CONFIG_SKUS);
                 break;

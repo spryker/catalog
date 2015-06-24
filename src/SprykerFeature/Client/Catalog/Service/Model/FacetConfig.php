@@ -1,6 +1,6 @@
 <?php
 
-namespace SprykerFeature\Client\Catalog\Model;
+namespace SprykerFeature\Client\Catalog\Service\Model;
 
 class FacetConfig
 {
