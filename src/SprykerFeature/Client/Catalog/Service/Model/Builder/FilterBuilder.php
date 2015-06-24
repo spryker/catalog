@@ -1,6 +1,6 @@
 <?php
 
-namespace SprykerFeature\Client\Catalog\Model\Builder;
+namespace SprykerFeature\Client\Catalog\Service\Model\Builder;
 
 use Elastica\Filter\BoolAnd;
 use Elastica\Filter\Nested;
@@ -10,7 +10,7 @@ use Elastica\Filter\Range;
 
 /**
  * Class FilterBuilder
- * @package SprykerFeature\Client\Catalog\Model\Builder
+ * @package SprykerFeature\Client\Catalog\Service\Model\Builder
  */
 class FilterBuilder implements FilterBuilderInterface
 {

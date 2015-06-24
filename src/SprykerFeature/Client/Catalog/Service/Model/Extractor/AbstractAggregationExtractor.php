@@ -1,6 +1,6 @@
 <?php
 
-namespace SprykerFeature\Client\Catalog\Model\Extractor;
+namespace SprykerFeature\Client\Catalog\Service\Model\Extractor;
 
 abstract class AbstractAggregationExtractor implements AggregationExtractorInterface
 {

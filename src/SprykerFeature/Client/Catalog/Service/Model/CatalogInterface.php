@@ -1,14 +1,14 @@
 <?php
 
-namespace SprykerFeature\Client\Catalog\Model;
+namespace SprykerFeature\Client\Catalog\Service\Model;
 
-use SprykerFeature\Client\Catalog\Model\Exception\ProductNotFoundException;
+use SprykerFeature\Client\Catalog\Service\Model\Exception\ProductNotFoundException;
 
 interface CatalogInterface
 {
     /**
      * @param int $id
-     * 
+     *
      * @return array
      * @throws ProductNotFoundException
      */

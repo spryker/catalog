@@ -1,12 +1,12 @@
 <?php
 
-namespace SprykerFeature\Client\Catalog\Model;
+namespace SprykerFeature\Client\Catalog\Service\Model;
 
 use Elastica\Query;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * @package SprykerFeature\Client\Catalog\Model
+ * @package SprykerFeature\Client\Catalog\Service\Model
  */
 class FulltextSearch extends AbstractSearch
 {

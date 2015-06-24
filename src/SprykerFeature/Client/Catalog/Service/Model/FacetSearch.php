@@ -1,18 +1,18 @@
 <?php
 
-namespace SprykerFeature\Client\Catalog\Model;
+namespace SprykerFeature\Client\Catalog\Service\Model;
 
 use Elastica\Filter\Term;
 use Elastica\Index;
 use Elastica\Query;
 use Elastica\Query\Filtered;
-use SprykerFeature\Client\Catalog\Model\Builder\FacetAggregationBuilderInterface;
-use SprykerFeature\Client\Catalog\Model\Builder\NestedFilterBuilderInterface;
-use SprykerFeature\Client\Catalog\Model\Extractor\AggregationExtractorInterface;
+use SprykerFeature\Client\Catalog\Service\Model\Builder\FacetAggregationBuilderInterface;
+use SprykerFeature\Client\Catalog\Service\Model\Builder\NestedFilterBuilderInterface;
+use SprykerFeature\Client\Catalog\Service\Model\Extractor\AggregationExtractorInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * @package SprykerFeature\Client\Catalog\Model
+ * @package SprykerFeature\Client\Catalog\Service\Model
  */
 class FacetSearch extends AbstractSearch
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace SprykerFeature\Client\Catalog\Model;
+namespace SprykerFeature\Client\Catalog\Service\Model;
 
 use Elastica\Filter\BoolAnd;
 use Elastica\Filter;
 use Elastica\Query;
-use SprykerFeature\Client\Catalog\Model\Builder\NestedFilterBuilderInterface;
+use SprykerFeature\Client\Catalog\Service\Model\Builder\NestedFilterBuilderInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class FacetFilterHandler implements FacetFilterHandlerInterface

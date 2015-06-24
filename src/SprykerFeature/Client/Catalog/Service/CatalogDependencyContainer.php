@@ -1,10 +1,10 @@
 <?php
 
-namespace SprykerFeature\Client\Catalog;
+namespace SprykerFeature\Client\Catalog\Service;
 
 use Elastica\Index;
 use Generated\Client\Ide\FactoryAutoCompletion\Catalog;
-use SprykerFeature\Client\Catalog\Model\FacetConfig;
+use SprykerFeature\Client\Catalog\Service\Model\FacetConfig;
 use SprykerEngine\Client\Kernel\AbstractDependencyContainer;
 use SprykerFeature\Shared\FrontendExporter\Code\KeyBuilder\KeyBuilderInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,7 +23,8 @@ class CatalogDependencyContainer extends AbstractDependencyContainer
     {
         return $this->getFactory()->createModelCatalog(
             $this->getProductKeyBuilder(),
-            $this->getLocator()->kvStorage()->readClient()->getInstance(),
+            '',
+//            $this->getLocator()->kvStorage()->readClient()->getInstance(), @todo move, rename
             \SprykerEngine\Shared\Kernel\Store::getInstance()->getCurrentLocale()
         );
     }

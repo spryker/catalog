@@ -1,13 +1,13 @@
 <?php
 
-namespace SprykerFeature\Client\Catalog\Model;
+namespace SprykerFeature\Client\Catalog\Service\Model;
 
 use Elastica\Query;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class FacetFilter
- * @package SprykerFeature\Client\Catalog\Model
+ * @package SprykerFeature\Client\Catalog\Service\Model
  */
 interface FacetFilterHandlerInterface
 {

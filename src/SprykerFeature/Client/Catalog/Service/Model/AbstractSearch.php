@@ -1,12 +1,12 @@
 <?php
 
-namespace SprykerFeature\Client\Catalog\Model;
+namespace SprykerFeature\Client\Catalog\Service\Model;
 
 use Elastica\Query;
 use Elastica\Index;
 use Elastica\ResultSet;
-use SprykerFeature\Client\Catalog\Model\Builder\FacetAggregationBuilderInterface;
-use SprykerFeature\Client\Catalog\Model\Extractor\AggregationExtractorInterface;
+use SprykerFeature\Client\Catalog\Service\Model\Builder\FacetAggregationBuilderInterface;
+use SprykerFeature\Client\Catalog\Service\Model\Extractor\AggregationExtractorInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 abstract class AbstractSearch

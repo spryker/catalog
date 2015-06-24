@@ -1,6 +1,6 @@
 <?php
 
-namespace SprykerFeature\Client\Catalog;
+namespace SprykerFeature\Client\Catalog\Service;
 
 use SprykerEngine\Client\Kernel\AbstractClient;
 use Symfony\Component\HttpFoundation\Request;
