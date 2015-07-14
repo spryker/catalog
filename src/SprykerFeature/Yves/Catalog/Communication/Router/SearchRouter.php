@@ -4,7 +4,7 @@
  * (c) Spryker Systems GmbH copyright protected
  */
 
-namespace SprykerFeature\Yves\Catalog\Router;
+namespace SprykerFeature\Yves\Catalog\Communication\Router;
 
 use Silex\Application;
 use SprykerFeature\Shared\Application\Communication\ControllerServiceBuilder;
@@ -17,8 +17,6 @@ use SprykerFeature\Yves\FrontendExporter\Mapper\UrlMapperInterface;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
 
-/**
- */
 class SearchRouter extends AbstractRouter
 {
 
