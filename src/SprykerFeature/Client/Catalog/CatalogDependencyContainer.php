@@ -4,28 +4,28 @@
  * (c) Spryker Systems GmbH copyright protected
  */
 
-namespace SprykerFeature\Client\Catalog\Service;
+namespace SprykerFeature\Client\Catalog;
 
 use SprykerEngine\Shared\Kernel\Store;
-use SprykerFeature\Client\Catalog\Service\KeyBuilder\ProductResourceKeyBuilder;
-use SprykerFeature\Client\Catalog\Service\Model\Extractor\RangeExtractor;
-use SprykerFeature\Client\Catalog\Service\Model\Extractor\FacetExtractor;
-use SprykerFeature\Client\Catalog\Service\Model\Builder\FacetAggregationBuilder;
-use SprykerFeature\Client\Catalog\Service\Model\Builder\FilterBuilder;
-use SprykerFeature\Client\Catalog\Service\Model\Builder\NestedFilterBuilder;
-use SprykerFeature\Client\Catalog\Service\Model\FacetFilterHandler;
-use SprykerFeature\Client\Catalog\Service\Model\FulltextSearch;
-use SprykerFeature\Client\Catalog\Service\Model\FacetSearch;
-use SprykerFeature\Client\Catalog\Service\Model\Catalog as ModelCatalog;
+use SprykerFeature\Client\Catalog\KeyBuilder\ProductResourceKeyBuilder;
+use SprykerFeature\Client\Catalog\Model\Extractor\RangeExtractor;
+use SprykerFeature\Client\Catalog\Model\Extractor\FacetExtractor;
+use SprykerFeature\Client\Catalog\Model\Builder\FacetAggregationBuilder;
+use SprykerFeature\Client\Catalog\Model\Builder\FilterBuilder;
+use SprykerFeature\Client\Catalog\Model\Builder\NestedFilterBuilder;
+use SprykerFeature\Client\Catalog\Model\FacetFilterHandler;
+use SprykerFeature\Client\Catalog\Model\FulltextSearch;
+use SprykerFeature\Client\Catalog\Model\FacetSearch;
+use SprykerFeature\Client\Catalog\Model\Catalog as ModelCatalog;
 use Elastica\Index;
 use Generated\Client\Ide\FactoryAutoCompletion\Catalog;
 use SprykerFeature\Client\Catalog\CatalogDependencyProvider;
-use SprykerFeature\Client\Catalog\Service\Model\FacetConfig;
-use SprykerEngine\Client\Kernel\Service\AbstractServiceDependencyContainer;
+use SprykerFeature\Client\Catalog\Model\FacetConfig;
+use SprykerEngine\Client\Kernel\AbstractDependencyContainer;
 use SprykerFeature\Shared\Collector\Code\KeyBuilder\KeyBuilderInterface;
 use Symfony\Component\HttpFoundation\Request;
 
-class CatalogDependencyContainer extends AbstractServiceDependencyContainer
+class CatalogDependencyContainer extends AbstractDependencyContainer
 {
 
     /**

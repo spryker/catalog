@@ -4,12 +4,12 @@
  * (c) Spryker Systems GmbH copyright protected
  */
 
-namespace SprykerFeature\Client\Catalog\Service\Model;
+namespace SprykerFeature\Client\Catalog\Model;
 
 use Elastica\Filter\BoolAnd;
 use Elastica\Filter;
 use Elastica\Query;
-use SprykerFeature\Client\Catalog\Service\Model\Builder\NestedFilterBuilderInterface;
+use SprykerFeature\Client\Catalog\Model\Builder\NestedFilterBuilderInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class FacetFilterHandler implements FacetFilterHandlerInterface

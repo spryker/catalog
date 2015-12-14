@@ -4,7 +4,7 @@
  * (c) Spryker Systems GmbH copyright protected
  */
 
-namespace SprykerFeature\Client\Catalog\Service\Model;
+namespace SprykerFeature\Client\Catalog\Model;
 
 use Elastica\Query;
 use Symfony\Component\HttpFoundation\Request;

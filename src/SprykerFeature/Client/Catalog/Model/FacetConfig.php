@@ -4,7 +4,7 @@
  * (c) Spryker Systems GmbH copyright protected
  */
 
-namespace SprykerFeature\Client\Catalog\Service\Model;
+namespace SprykerFeature\Client\Catalog\Model;
 
 class FacetConfig
 {

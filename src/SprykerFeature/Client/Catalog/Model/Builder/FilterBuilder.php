@@ -4,7 +4,7 @@
  * (c) Spryker Systems GmbH copyright protected
  */
 
-namespace SprykerFeature\Client\Catalog\Service\Model\Builder;
+namespace SprykerFeature\Client\Catalog\Model\Builder;
 
 use Elastica\Filter\BoolAnd;
 use Elastica\Filter\Nested;

@@ -4,7 +4,7 @@
  * (c) Spryker Systems GmbH copyright protected
  */
 
-namespace SprykerFeature\Client\Catalog\Service\KeyBuilder;
+namespace SprykerFeature\Client\Catalog\KeyBuilder;
 
 use SprykerFeature\Shared\Collector\Code\KeyBuilder\SharedResourceKeyBuilder;
 use SprykerFeature\Shared\Product\ProductConstants;
