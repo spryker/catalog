@@ -4,7 +4,7 @@
  * (c) Spryker Systems GmbH copyright protected
  */
 
-namespace SprykerFeature\Client\Catalog\Service\Model\Extractor;
+namespace SprykerFeature\Client\Catalog\Model\Extractor;
 
 abstract class AbstractAggregationExtractor implements AggregationExtractorInterface
 {
