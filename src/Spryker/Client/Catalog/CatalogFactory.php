@@ -25,7 +25,7 @@ use Spryker\Client\Kernel\AbstractFactory;
 use Spryker\Shared\Collector\Code\KeyBuilder\KeyBuilderInterface;
 use Symfony\Component\HttpFoundation\Request;
 
-class CatalogDependencyContainer extends AbstractFactory
+class CatalogFactory extends AbstractFactory
 {
 
     /**
