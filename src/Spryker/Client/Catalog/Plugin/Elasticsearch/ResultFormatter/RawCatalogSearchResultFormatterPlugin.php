@@ -7,8 +7,9 @@
 
 namespace Spryker\Client\Catalog\Plugin\Elasticsearch\ResultFormatter;
 
-use Elastica\ResultSet;
+use Algolia\AlgoliaSearch\Iterators\ObjectIterator;
 use Generated\Shared\Search\PageIndexMap;
+use Generated\Shared\Transfer\SearchResultTransfer;
 use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\AbstractElasticsearchResultFormatterPlugin;
 
 /**
@@ -30,16 +31,37 @@ class RawCatalogSearchResultFormatterPlugin extends AbstractElasticsearchResultF
     }
 
     /**
-     * @param \Elastica\ResultSet $searchResult
+     * @param \Elastica\ResultSet|\Generated\Shared\Transfer\SearchResultTransfer $searchResult
      * @param array $requestParameters
      *
      * @return array
      */
-    protected function formatSearchResult(ResultSet $searchResult, array $requestParameters)
+    protected function formatSearchResult(/*ResultSet*/ $searchResult, array $requestParameters)
     {
+        if ($searchResult instanceof SearchResultTransfer) {
+            return $this->formatSearchResultTransfer($searchResult);
+        }
+
         $products = [];
+
         foreach ($searchResult->getResults() as $document) {
             $products[] = $document->getSource()[PageIndexMap::SEARCH_RESULT_DATA];
+        }
+
+        return $products;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\SearchResultTransfer $searchResultTransfer
+     *
+     * @return array
+     */
+    protected function formatSearchResultTransfer(SearchResultTransfer $searchResultTransfer): array
+    {
+        $products = [];
+
+        foreach ($searchResultTransfer->getResults() as $item) {
+            $products[] = $item[PageIndexMap::SEARCH_RESULT_DATA];
         }
 
         return $products;

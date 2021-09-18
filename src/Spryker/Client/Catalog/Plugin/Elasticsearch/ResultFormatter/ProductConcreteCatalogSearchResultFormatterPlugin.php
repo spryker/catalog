@@ -7,7 +7,6 @@
 
 namespace Spryker\Client\Catalog\Plugin\Elasticsearch\ResultFormatter;
 
-use Elastica\ResultSet;
 use Generated\Shared\Search\PageIndexMap;
 use Generated\Shared\Transfer\ProductConcretePageSearchTransfer;
 use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\AbstractElasticsearchResultFormatterPlugin;
@@ -42,7 +41,7 @@ class ProductConcreteCatalogSearchResultFormatterPlugin extends AbstractElastics
      *
      * @return array
      */
-    protected function formatSearchResult(ResultSet $searchResult, array $requestParameters): array
+    protected function formatSearchResult(/*ResultSet*/ $searchResult, array $requestParameters): array
     {
         $productConcreteSetPageResults = [];
 
