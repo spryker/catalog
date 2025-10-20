@@ -5,5 +5,5 @@ parameters:
     level: 8
     reportUnmatchedIgnoredErrors: false
     excludePaths:
-        - '%rootDir%/../../../vendor/spryker/spryker/Bundles/Catalog/src/Spryker/Client/Catalog/Plugin/Elasticsearch/Query/ProductCatalogSearchQueryPlugin.php'
-        - '%rootDir%/../../../vendor/spryker/spryker/Bundles/Catalog/src/Spryker/Client/Catalog/Plugin/Elasticsearch/Query/ProductConcreteCatalogSearchQueryPlugin.php'
+        - '%rootDir%/../../../src/Spryker/Catalog/src/Spryker/Client/Catalog/Plugin/Elasticsearch/Query/ProductCatalogSearchQueryPlugin.php'
+        - '%rootDir%/../../../src/Spryker/Catalog/src/Spryker/Client/Catalog/Plugin/Elasticsearch/Query/ProductConcreteCatalogSearchQueryPlugin.php'
