@@ -186,9 +186,6 @@ class CatalogSearchQueryPlugin extends AbstractPlugin implements QueryInterface,
         return $boolQuery;
     }
 
-    /**
-     * @return void
-     */
     protected function setupDefaultSearchContext(): void
     {
         $searchContextTransfer = new SearchContextTransfer();
@@ -197,17 +194,11 @@ class CatalogSearchQueryPlugin extends AbstractPlugin implements QueryInterface,
         $this->searchContextTransfer = $searchContextTransfer;
     }
 
-    /**
-     * @return bool
-     */
     protected function hasSearchContext(): bool
     {
         return (bool)$this->searchContextTransfer;
     }
 
-    /**
-     * @return int
-     */
     protected function getFullTextBoostedBoostingValue(): int
     {
         return $this->getFactory()->getConfig()->getElasticsearchFullTextBoostedBoostingValue();

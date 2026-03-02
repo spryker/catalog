@@ -42,11 +42,6 @@ class CatalogSearchHttpConfigBuilderPlugin extends AbstractPlugin implements Sea
         return $searchConfigurationTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SearchConfigurationTransfer $searchConfigurationTransfer
-     *
-     * @return \Generated\Shared\Transfer\SearchConfigurationTransfer
-     */
     protected function buildFacetConfig(SearchConfigurationTransfer $searchConfigurationTransfer): SearchConfigurationTransfer
     {
         foreach ($this->getFactory()->getFacetConfigTransferBuilderPluginVariants(static::TYPE_SEARCH_HTTP) as $facetConfigBuilderPlugin) {
@@ -56,11 +51,6 @@ class CatalogSearchHttpConfigBuilderPlugin extends AbstractPlugin implements Sea
         return $searchConfigurationTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SearchConfigurationTransfer $searchConfigurationTransfer
-     *
-     * @return \Generated\Shared\Transfer\SearchConfigurationTransfer
-     */
     protected function buildSortConfig(SearchConfigurationTransfer $searchConfigurationTransfer): SearchConfigurationTransfer
     {
         $sortConfigBuilderPlugins = $this->getFactory()->getSortConfigTransferBuilderPlugins();
@@ -72,11 +62,6 @@ class CatalogSearchHttpConfigBuilderPlugin extends AbstractPlugin implements Sea
         return $searchConfigurationTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SearchConfigurationTransfer $searchConfigurationTransfer
-     *
-     * @return \Generated\Shared\Transfer\SearchConfigurationTransfer
-     */
     protected function buildPaginationConfig(SearchConfigurationTransfer $searchConfigurationTransfer): SearchConfigurationTransfer
     {
         $searchConfigurationTransfer->setPaginationConfig(

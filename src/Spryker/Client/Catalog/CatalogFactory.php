@@ -81,9 +81,6 @@ class CatalogFactory extends AbstractFactory
         return new CatalogViewModePersistence();
     }
 
-    /**
-     * @return \Spryker\Client\Search\Dependency\Plugin\PaginationConfigBuilderInterface
-     */
     public function getPaginationConfigBuilder(): PaginationConfigBuilderInterface
     {
         $paginationConfigBuilder = $this->getProvidedDependency(CatalogDependencyProvider::PLUGIN_PAGINATION_CONFIG_BUILDER);
@@ -92,9 +89,6 @@ class CatalogFactory extends AbstractFactory
         return $paginationConfigBuilder;
     }
 
-    /**
-     * @return \Spryker\Client\Catalog\CatalogConfig
-     */
     public function getCatalogConfig(): CatalogConfig
     {
         return $this->getConfig();
@@ -329,25 +323,16 @@ class CatalogFactory extends AbstractFactory
         return $this->getProvidedDependency(CatalogDependencyProvider::PLUGINS_SEARCH_RESULT_COUNT);
     }
 
-    /**
-     * @return \Spryker\Client\Catalog\PluginResolver\QueryPluginResolverInterface
-     */
     public function createQueryPluginResolver(): QueryPluginResolverInterface
     {
         return new QueryPluginResolver();
     }
 
-    /**
-     * @return \Spryker\Client\Catalog\PluginResolver\QueryExpanderPluginResolverInterface
-     */
     public function createQueryExpanderPluginResolver(): QueryExpanderPluginResolverInterface
     {
         return new QueryExpanderPluginResolver();
     }
 
-    /**
-     * @return \Spryker\Client\Catalog\PluginResolver\ResultFormatterPluginResolverInterface
-     */
     public function createResultFormatterPluginResolver(): ResultFormatterPluginResolverInterface
     {
         return new ResultFormatterPluginResolver();

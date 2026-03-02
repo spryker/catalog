@@ -290,11 +290,6 @@ class CatalogDependencyProvider extends AbstractDependencyProvider
         return [];
     }
 
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
     protected function addSuggestionQueryExpanderPluginVariants(Container $container): Container
     {
         $container->set(static::SUGGESTION_QUERY_EXPANDER_PLUGIN_VARIANTS, function () {
@@ -433,11 +428,6 @@ class CatalogDependencyProvider extends AbstractDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
     protected function addCatalogSearchCountQueryExpanderPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_CATALOG_SEARCH_COUNT_QUERY_EXPANDER, function () {
@@ -447,11 +437,6 @@ class CatalogDependencyProvider extends AbstractDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
     protected function addProductConcreteCatalogSearchResultFormatterPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_PRODUCT_CONCRETE_CATALOG_SEARCH_RESULT_FORMATTER, function () {
@@ -461,11 +446,6 @@ class CatalogDependencyProvider extends AbstractDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
     protected function addProductConcreteCatalogSearchQueryExpanderPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_PRODUCT_CONCRETE_CATALOG_SEARCH_QUERY_EXPANDER, function () {
@@ -475,11 +455,6 @@ class CatalogDependencyProvider extends AbstractDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
     protected function addProductConcreteCatalogSearchQueryPlugin(Container $container): Container
     {
         $container->set(static::PLUGIN_PRODUCT_CONCRETE_CATALOG_SEARCH_QUERY, $container->factory(function () {
@@ -489,11 +464,6 @@ class CatalogDependencyProvider extends AbstractDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
     protected function addPaginationConfigBuilderPlugin(Container $container): Container
     {
         $container->set(static::PLUGIN_PAGINATION_CONFIG_BUILDER, function () {
@@ -573,11 +543,6 @@ class CatalogDependencyProvider extends AbstractDependencyProvider
         return [];
     }
 
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
     protected function addSuggestionResultFormatterPluginVariants(Container $container): Container
     {
         $container->set(static::SUGGESTION_RESULT_FORMATTER_PLUGIN_VARIANTS, function () {
@@ -614,11 +579,6 @@ class CatalogDependencyProvider extends AbstractDependencyProvider
         return new SuggestionQueryPlugin();
     }
 
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
     protected function addSuggestionQueryPluginVariants(Container $container): Container
     {
         $container->set(static::CATALOG_SUGGESTION_QUERY_PLUGIN_VARIANTS, function () {
@@ -705,11 +665,6 @@ class CatalogDependencyProvider extends AbstractDependencyProvider
         return new ProductConcreteCatalogSearchQueryPlugin();
     }
 
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
     protected function addProductConcreteCatalogSearchQueryPluginVariants(Container $container): Container
     {
         $container->set(static::PRODUCT_CONCRETE_CATALOG_SEARCH_QUERY_PLUGIN_VARIANTS, function () {
@@ -737,11 +692,6 @@ class CatalogDependencyProvider extends AbstractDependencyProvider
         return [];
     }
 
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
     protected function addProductConcreteCatalogSearchResultFormatterPluginVariants(Container $container): Container
     {
         $container->set(static::PRODUCT_CONCRETE_CATALOG_SEARCH_RESULT_FORMATTER_PLUGIN_VARIANTS, function () {
@@ -776,11 +726,6 @@ class CatalogDependencyProvider extends AbstractDependencyProvider
         return [];
     }
 
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
     protected function addProductConcreteCatalogSearchQueryExpanderPluginVariants(Container $container): Container
     {
         $container->set(static::PRODUCT_CONCRETE_CATALOG_SEARCH_QUERY_EXPANDER_PLUGIN_VARIANTS, function () {
@@ -807,11 +752,6 @@ class CatalogDependencyProvider extends AbstractDependencyProvider
         return [];
     }
 
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
     protected function addSearchResultCountPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_SEARCH_RESULT_COUNT, function () {

@@ -35,11 +35,6 @@ class ElasticsearchCatalogSearchConfigBuilderPlugin extends AbstractPlugin imple
         return $searchConfigurationTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SearchConfigurationTransfer $searchConfigurationTransfer
-     *
-     * @return \Generated\Shared\Transfer\SearchConfigurationTransfer
-     */
     protected function buildFacetConfig(SearchConfigurationTransfer $searchConfigurationTransfer): SearchConfigurationTransfer
     {
         foreach ($this->getFactory()->getFacetConfigTransferBuilderPlugins() as $facetConfigBuilderPlugin) {
@@ -49,11 +44,6 @@ class ElasticsearchCatalogSearchConfigBuilderPlugin extends AbstractPlugin imple
         return $searchConfigurationTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SearchConfigurationTransfer $searchConfigurationTransfer
-     *
-     * @return \Generated\Shared\Transfer\SearchConfigurationTransfer
-     */
     protected function buildSortConfig(SearchConfigurationTransfer $searchConfigurationTransfer): SearchConfigurationTransfer
     {
         $sortConfigBuilderPlugins = $this->getFactory()->getSortConfigTransferBuilderPlugins();
@@ -65,11 +55,6 @@ class ElasticsearchCatalogSearchConfigBuilderPlugin extends AbstractPlugin imple
         return $searchConfigurationTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SearchConfigurationTransfer $searchConfigurationTransfer
-     *
-     * @return \Generated\Shared\Transfer\SearchConfigurationTransfer
-     */
     protected function buildPaginationConfig(SearchConfigurationTransfer $searchConfigurationTransfer): SearchConfigurationTransfer
     {
         $searchConfigurationTransfer->setPaginationConfig(

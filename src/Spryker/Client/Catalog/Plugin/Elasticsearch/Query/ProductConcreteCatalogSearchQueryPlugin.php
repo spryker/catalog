@@ -123,9 +123,6 @@ class ProductConcreteCatalogSearchQueryPlugin extends AbstractPlugin implements 
         $this->searchContextTransfer = $searchContextTransfer;
     }
 
-    /**
-     * @return void
-     */
     protected function setupDefaultSearchContext(): void
     {
         $searchContextTransfer = new SearchContextTransfer();
@@ -134,9 +131,6 @@ class ProductConcreteCatalogSearchQueryPlugin extends AbstractPlugin implements 
         $this->searchContextTransfer = $searchContextTransfer;
     }
 
-    /**
-     * @return \Elastica\Query
-     */
     protected function createQuery(): Query
     {
         $this->query = new Query();
@@ -146,9 +140,6 @@ class ProductConcreteCatalogSearchQueryPlugin extends AbstractPlugin implements 
         return $this->query;
     }
 
-    /**
-     * @return void
-     */
     protected function addFulltextSearchToQuery(): void
     {
         $matchQuery = $this->createFulltextSearchQuery();
@@ -156,9 +147,6 @@ class ProductConcreteCatalogSearchQueryPlugin extends AbstractPlugin implements 
         $this->query->setQuery($boolQuery);
     }
 
-    /**
-     * @return \Elastica\Query\AbstractQuery
-     */
     protected function createFulltextSearchQuery(): AbstractQuery
     {
         if ($this->searchString === '') {
@@ -191,11 +179,6 @@ class ProductConcreteCatalogSearchQueryPlugin extends AbstractPlugin implements 
         return $boolQuery;
     }
 
-    /**
-     * @param \Elastica\Query\BoolQuery $boolQuery
-     *
-     * @return \Elastica\Query\BoolQuery
-     */
     protected function setTypeFilter(BoolQuery $boolQuery): BoolQuery
     {
         $typeFilter = $this->getMatchQuery();
@@ -205,17 +188,11 @@ class ProductConcreteCatalogSearchQueryPlugin extends AbstractPlugin implements 
         return $boolQuery;
     }
 
-    /**
-     * @return void
-     */
     protected function setQuerySource(): void
     {
         $this->query->setSource([PageIndexMap::SEARCH_RESULT_DATA]);
     }
 
-    /**
-     * @return int
-     */
     protected function getFullTextBoostedBoostingValue(): int
     {
         return $this->getFactory()
@@ -223,9 +200,6 @@ class ProductConcreteCatalogSearchQueryPlugin extends AbstractPlugin implements 
             ->getElasticsearchFullTextBoostedBoostingValue();
     }
 
-    /**
-     * @return bool
-     */
     protected function hasSearchContext(): bool
     {
         return (bool)$this->searchContextTransfer;
