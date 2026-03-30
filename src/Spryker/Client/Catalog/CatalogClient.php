@@ -88,6 +88,21 @@ class CatalogClient extends AbstractClient implements CatalogClientInterface
      *
      * @api
      *
+     * @param array<string, string> $searchStrings
+     * @param array<string, mixed> $requestParameters
+     *
+     * @return array<string, mixed>
+     */
+    public function catalogSuggestMultiSearch(array $searchStrings, array $requestParameters = []): array
+    {
+        return $this->getFactory()->createSuggestMultiSearcher()->search($searchStrings, $requestParameters);
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @api
+     *
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
      * @return string

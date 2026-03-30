@@ -46,6 +46,23 @@ interface CatalogClientInterface
 
     /**
      * Specification:
+     * - Executes multiple suggest search queries in a single batch request to the search engine.
+     * - Each search string is identified by a string key.
+     * - Each query will be extended with the provided plugins via {@link \Spryker\Client\Catalog\CatalogDependencyProvider::SUGGESTION_QUERY_EXPANDER_PLUGINS}.
+     * - Each result will be formatted with the provided plugins via {@link \Spryker\Client\Catalog\CatalogDependencyProvider::SUGGESTION_RESULT_FORMATTER_PLUGINS}.
+     * - Returns results keyed by the same keys as the input search strings.
+     *
+     * @api
+     *
+     * @param array<string, string> $searchStrings
+     * @param array<string, mixed> $requestParameters
+     *
+     * @return array<string, mixed>
+     */
+    public function catalogSuggestMultiSearch(array $searchStrings, array $requestParameters = []): array;
+
+    /**
+     * Specification:
      *  - Reads current view mode as store in cookie, the view mode is listing mode for catalog.
      *
      * @api

@@ -14,6 +14,8 @@ use Spryker\Client\Catalog\PluginResolver\QueryPluginResolver;
 use Spryker\Client\Catalog\PluginResolver\QueryPluginResolverInterface;
 use Spryker\Client\Catalog\PluginResolver\ResultFormatterPluginResolver;
 use Spryker\Client\Catalog\PluginResolver\ResultFormatterPluginResolverInterface;
+use Spryker\Client\Catalog\Search\SuggestMultiSearcher;
+use Spryker\Client\Catalog\Search\SuggestMultiSearcherInterface;
 use Spryker\Client\Kernel\AbstractFactory;
 use Spryker\Client\Search\Dependency\Plugin\PaginationConfigBuilderInterface;
 use Spryker\Client\Search\Dependency\Plugin\QueryInterface;
@@ -321,6 +323,20 @@ class CatalogFactory extends AbstractFactory
     public function getSearchResultCountPlugins(): array
     {
         return $this->getProvidedDependency(CatalogDependencyProvider::PLUGINS_SEARCH_RESULT_COUNT);
+    }
+
+    public function createSuggestMultiSearcher(): SuggestMultiSearcherInterface
+    {
+        return new SuggestMultiSearcher(
+            $this->getSearchClient(),
+            $this->getSuggestionSearchQueryPlugin(),
+            $this->createQueryExpanderPluginResolver(),
+            $this->createResultFormatterPluginResolver(),
+            $this->getProvidedDependency(CatalogDependencyProvider::SUGGESTION_QUERY_EXPANDER_PLUGIN_VARIANTS),
+            $this->getProvidedDependency(CatalogDependencyProvider::SUGGESTION_QUERY_EXPANDER_PLUGINS),
+            $this->getProvidedDependency(CatalogDependencyProvider::SUGGESTION_RESULT_FORMATTER_PLUGIN_VARIANTS),
+            $this->getProvidedDependency(CatalogDependencyProvider::SUGGESTION_RESULT_FORMATTER_PLUGINS),
+        );
     }
 
     public function createQueryPluginResolver(): QueryPluginResolverInterface
