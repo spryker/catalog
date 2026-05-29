@@ -150,6 +150,10 @@ class CatalogDependencyProvider extends AbstractDependencyProvider
      */
     public const PLUGIN_PAGINATION_CONFIG_BUILDER = 'PLUGIN_PAGINATION_CONFIG_BUILDER';
 
+    public const string PLUGINS_PRODUCT_CONCRETE_STORAGE_SEARCH = 'PLUGINS_PRODUCT_CONCRETE_STORAGE_SEARCH';
+
+    public const string PLUGINS_PRODUCT_CONCRETE_SUGGESTION_ENRICHER = 'PLUGINS_PRODUCT_CONCRETE_SUGGESTION_ENRICHER';
+
     /**
      * @param \Spryker\Client\Kernel\Container $container
      *
@@ -185,6 +189,8 @@ class CatalogDependencyProvider extends AbstractDependencyProvider
         $container = $this->addCatalogSearchCountQueryExpanderPluginVariants($container);
         $container = $this->addPaginationConfigBuilderPlugin($container);
         $container = $this->addSearchResultCountPlugins($container);
+        $container = $this->addProductConcreteStorageSearchPlugin($container);
+        $container = $this->addProductConcreteSuggestionEnricherPlugins($container);
 
         return $container;
     }
@@ -767,6 +773,40 @@ class CatalogDependencyProvider extends AbstractDependencyProvider
      * @return list<\Spryker\Client\SearchExtension\Dependency\Plugin\SearchResultCountPluginInterface>
      */
     protected function getSearchResultCountPlugins(): array
+    {
+        return [];
+    }
+
+    protected function addProductConcreteStorageSearchPlugin(Container $container): Container
+    {
+        $container->set(static::PLUGINS_PRODUCT_CONCRETE_STORAGE_SEARCH, function (): array {
+            return $this->getProductConcreteStorageSearchPlugins();
+        });
+
+        return $container;
+    }
+
+    /**
+     * @return array<\Spryker\Client\CatalogExtension\Dependency\Plugin\ProductConcreteStorageSearchPluginInterface>
+     */
+    protected function getProductConcreteStorageSearchPlugins(): array
+    {
+        return [];
+    }
+
+    protected function addProductConcreteSuggestionEnricherPlugins(Container $container): Container
+    {
+        $container->set(static::PLUGINS_PRODUCT_CONCRETE_SUGGESTION_ENRICHER, function (): array {
+            return $this->getProductConcreteSuggestionEnricherPlugins();
+        });
+
+        return $container;
+    }
+
+    /**
+     * @return array<\Spryker\Client\CatalogExtension\Dependency\Plugin\ProductConcreteSuggestionEnricherPluginInterface>
+     */
+    protected function getProductConcreteSuggestionEnricherPlugins(): array
     {
         return [];
     }

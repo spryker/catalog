@@ -61,6 +61,11 @@ class CatalogConfig extends AbstractBundleConfig
     protected const ELASTICSEARCH_FULL_TEXT_BOOSTED_BOOSTING_VALUE = 'SEARCH_ELASTICSEARCH:FULL_TEXT_BOOSTED_BOOSTING_VALUE';
 
     /**
+     * @uses \Spryker\Shared\ProductPageSearch\ProductPageSearchConstants::PRODUCT_CONCRETE_SEARCH_IN_STORAGE_ENABLED
+     */
+    protected const string PRODUCT_CONCRETE_SEARCH_IN_STORAGE_ENABLED = 'ProductPageSearch:PRODUCT_CONCRETE_SEARCH_IN_STORAGE_ENABLED';
+
+    /**
      * @api
      *
      * @deprecated Use {@link \Spryker\Client\Catalog\CatalogConfig::getElasticsearchFullTextBoostedBoostingValue()} instead.
@@ -126,5 +131,20 @@ class CatalogConfig extends AbstractBundleConfig
             static::ELASTICSEARCH_FULL_TEXT_BOOSTED_BOOSTING_VALUE,
             $this->get(static::FULL_TEXT_BOOSTED_BOOSTING_VALUE, 1),
         );
+    }
+
+    /**
+     * Specification:
+     * - When enabled, concrete product search is served from Redis (product storage) instead of OpenSearch.
+     * - The search performs a direct SKU lookup first, then falls back to abstract name search.
+     * - Disabled by default; enable only after product-concrete storage data has been fully published.
+     *
+     * @api
+     *
+     * @return bool
+     */
+    public function isProductConcreteSearchInStorageEnabled(): bool
+    {
+        return $this->get(static::PRODUCT_CONCRETE_SEARCH_IN_STORAGE_ENABLED, false);
     }
 }

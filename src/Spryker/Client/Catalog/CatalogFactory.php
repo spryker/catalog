@@ -353,4 +353,20 @@ class CatalogFactory extends AbstractFactory
     {
         return new ResultFormatterPluginResolver();
     }
+
+    /**
+     * @return array<\Spryker\Client\CatalogExtension\Dependency\Plugin\ProductConcreteStorageSearchPluginInterface>
+     */
+    public function getProductConcreteStorageSearchPlugins(): array
+    {
+        return $this->getProvidedDependency(CatalogDependencyProvider::PLUGINS_PRODUCT_CONCRETE_STORAGE_SEARCH);
+    }
+
+    /**
+     * @return array<\Spryker\Client\CatalogExtension\Dependency\Plugin\ProductConcreteSuggestionEnricherPluginInterface>
+     */
+    public function getProductConcreteSuggestionEnricherPlugins(): array
+    {
+        return $this->getProvidedDependency(CatalogDependencyProvider::PLUGINS_PRODUCT_CONCRETE_SUGGESTION_ENRICHER);
+    }
 }

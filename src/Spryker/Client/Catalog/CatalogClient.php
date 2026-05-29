@@ -18,6 +18,11 @@ use Symfony\Component\HttpFoundation\Response;
 class CatalogClient extends AbstractClient implements CatalogClientInterface
 {
     /**
+     * @uses \Spryker\Client\Catalog\Plugin\Elasticsearch\ResultFormatter\RawCatalogSearchResultFormatterPlugin::NAME
+     */
+    protected const string CATALOG_SEARCH_PRODUCTS_KEY = 'products';
+
+    /**
      * {@inheritDoc}
      *
      * @api
@@ -77,10 +82,20 @@ class CatalogClient extends AbstractClient implements CatalogClientInterface
             ->getFactory()
             ->getSuggestionResultFormatters($searchQuery);
 
-        return $this
+        $result = $this
             ->getFactory()
             ->getSearchClient()
             ->search($searchQuery, $resultFormatters, $requestParameters);
+
+        if (!$this->getFactory()->getConfig()->isProductConcreteSearchInStorageEnabled()) {
+            return $result;
+        }
+
+        foreach ($this->getFactory()->getProductConcreteSuggestionEnricherPlugins() as $enricherPlugin) {
+            $result = $enricherPlugin->enrichSuggestSearchResultWithCompletion($result, $searchString);
+        }
+
+        return $result;
     }
 
     /**
@@ -175,6 +190,10 @@ class CatalogClient extends AbstractClient implements CatalogClientInterface
      */
     public function searchProductConcretesByFullText(ProductConcreteCriteriaFilterTransfer $productConcreteCriteriaFilterTransfer)
     {
+        if ($this->getFactory()->getConfig()->isProductConcreteSearchInStorageEnabled()) {
+            return $this->executeProductConcreteSearchPlugins($productConcreteCriteriaFilterTransfer);
+        }
+
         $searchQuery = $this->getFactory()->createProductConcreteCatalogSearchQuery((string)$productConcreteCriteriaFilterTransfer->getSearchString());
         $requestParameters = $productConcreteCriteriaFilterTransfer->getRequestParams();
 
@@ -198,5 +217,33 @@ class CatalogClient extends AbstractClient implements CatalogClientInterface
             ->getFactory()
             ->getSearchClient()
             ->search($searchQuery, $resultFormatters, $requestParameters);
+    }
+
+    protected function executeProductConcreteSearchPlugins(ProductConcreteCriteriaFilterTransfer $productConcreteCriteriaFilterTransfer): array
+    {
+        foreach ($this->getFactory()->getProductConcreteStorageSearchPlugins() as $plugin) {
+            if (!$plugin->isApplicable($productConcreteCriteriaFilterTransfer)) {
+                continue;
+            }
+
+            $skuResult = $plugin->searchProductConcretes($productConcreteCriteriaFilterTransfer);
+
+            if ($skuResult) {
+                return $skuResult;
+            }
+
+            $requestParameters = (array)$productConcreteCriteriaFilterTransfer->getRequestParams();
+
+            if ($productConcreteCriteriaFilterTransfer->getLimit() !== null) {
+                $requestParameters[$this->getFactory()->getConfig()->getItemsPerPageParameterName()] = $productConcreteCriteriaFilterTransfer->getLimit();
+            }
+
+            $catalogSearchResults = $this->catalogSearch((string)$productConcreteCriteriaFilterTransfer->getSearchString(), $requestParameters);
+            $abstractSearchResults = $catalogSearchResults[static::CATALOG_SEARCH_PRODUCTS_KEY] ?? [];
+
+            return $plugin->searchProductConcretesByAbstractSearchResults($abstractSearchResults);
+        }
+
+        return [];
     }
 }

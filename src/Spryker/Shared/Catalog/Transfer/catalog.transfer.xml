@@ -66,4 +66,7 @@
         <property name="paginationConfig" type="PaginationConfig"/>
     </transfer>
 
+    <transfer name="ProductView">
+    </transfer>
+
 </transfers>
